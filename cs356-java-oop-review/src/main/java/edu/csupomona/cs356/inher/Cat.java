@@ -12,10 +12,10 @@ public class Cat extends Animal {
     public static void main(String[] args) {
         Cat myCat = new Cat();
         Cat.testClassMethod();
-        myCat.testInstanceMethod();
+        myCat.testInstanceMethod();  //
         
         Animal myAnimal = myCat;
         Animal.testClassMethod();
-        myAnimal.testInstanceMethod();
+        myAnimal.testInstanceMethod(); //
     }
 }

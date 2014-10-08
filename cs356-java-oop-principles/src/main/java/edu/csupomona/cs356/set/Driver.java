@@ -10,9 +10,13 @@ public class Driver {
 		set.addAll(Arrays.asList("Snap", "Crackle", "Pop"));
 		System.out.println(set.getAddCount());
 		
-		CompInstrumentedHashSet<String> set2 = new CompInstrumentedHashSet<String>(new HashSet<String>());
-		set2.addAll(Arrays.asList("Snap", "Crackle", "Pop"));
-		System.out.println(set2.getAddCount());
+//		ImprovedInstrumentedHashSet<String> set2 = new ImprovedInstrumentedHashSet<String>(10, 10);
+//		set2.addAll(Arrays.asList("Snap", "Crackle", "Pop"));
+//		System.out.println(set2.getAddCount());
+		
+//		CompInstrumentedHashSet<String> set2 = new CompInstrumentedHashSet<String>(new HashSet<String>());
+//		set2.addAll(Arrays.asList("Snap", "Crackle", "Pop"));
+//		System.out.println(set2.getAddCount());
 	}
 
 }

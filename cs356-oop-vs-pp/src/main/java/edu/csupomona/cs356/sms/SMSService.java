@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
-public class SMSService {
+public class SMSService implements ISMSService {
 
 	private String inputBuffer;
 	private List<String> messageQueue;
