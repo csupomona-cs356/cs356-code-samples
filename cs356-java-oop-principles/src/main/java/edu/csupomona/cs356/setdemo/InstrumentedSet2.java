@@ -45,6 +45,11 @@ public class InstrumentedSet2<E> implements Set<E> {
 		return forwardingSet.add(e);
 	}
 
+	public boolean addAll(Collection<? extends E> c) {
+		counter += c.size();
+		return forwardingSet.addAll(c);
+	}
+
 	public boolean remove(Object o) {
 		return forwardingSet.remove(o);
 	}
@@ -52,12 +57,7 @@ public class InstrumentedSet2<E> implements Set<E> {
 	public boolean containsAll(Collection<?> c) {
 		return forwardingSet.containsAll(c);
 	}
-
-	public boolean addAll(Collection<? extends E> c) {
-		counter += c.size();
-		return forwardingSet.addAll(c);
-	}
-
+	
 	public boolean retainAll(Collection<?> c) {
 		return forwardingSet.retainAll(c);
 	}

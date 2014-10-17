@@ -42,6 +42,11 @@ public class InstrumentedSet<E> extends HashSet<E> implements Set<E> {
 		counter++;
 		return super.add(e);
 	}
+	
+	public boolean addAll(Collection<? extends E> c) {
+		counter += c.size();
+		return super.addAll(c);
+	}
 
 	public boolean remove(Object o) {
 		return super.remove(o);
@@ -49,11 +54,6 @@ public class InstrumentedSet<E> extends HashSet<E> implements Set<E> {
 
 	public boolean containsAll(Collection<?> c) {
 		return super.containsAll(c);
-	}
-
-	public boolean addAll(Collection<? extends E> c) {
-		counter += c.size();
-		return super.addAll(c);
 	}
 
 	public boolean retainAll(Collection<?> c) {
