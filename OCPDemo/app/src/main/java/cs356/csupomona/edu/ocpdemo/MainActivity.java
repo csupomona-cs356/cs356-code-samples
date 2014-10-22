@@ -14,9 +14,13 @@ import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.Toast;
 
+import javax.inject.Inject;
+
 import cs356.csupomona.edu.ocpdemo.answer.AnswerType;
 import cs356.csupomona.edu.ocpdemo.answer.EditTextAnswer;
 import cs356.csupomona.edu.ocpdemo.answer.SeekBarAnswer;
+import cs356.csupomona.edu.ocpdemo.submit.SubmitService;
+import dagger.ObjectGraph;
 
 public class MainActivity extends Activity {
 
@@ -25,9 +29,16 @@ public class MainActivity extends Activity {
 
     private AnswerType answerType;
 
+    @Inject
+    SubmitService submitService;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        ((DemoApplication) getApplication()).inject(this);
+
+
         setContentView(R.layout.activity_main);
         // answer container
         container = (LinearLayout) this.findViewById(R.id.container);
@@ -48,7 +59,8 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View view) {
                 String submitString = answerType.getAnswerAsString();
-                Toast.makeText(MainActivity.this, submitString, Toast.LENGTH_SHORT).show();
+                submitService.submitAnswer(MainActivity.this, submitString);
+                //Toast.makeText(MainActivity.this, submitString, Toast.LENGTH_SHORT).show();
             }
         });
     }
